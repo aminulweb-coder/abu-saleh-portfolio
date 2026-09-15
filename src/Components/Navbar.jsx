@@ -7,7 +7,9 @@ const navItems = (
         to="/"
         end
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         Home
@@ -18,7 +20,9 @@ const navItems = (
       <NavLink
         to="/about"
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         About
@@ -29,7 +33,9 @@ const navItems = (
       <NavLink
         to="/services"
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         Services
@@ -40,7 +46,9 @@ const navItems = (
       <NavLink
         to="/portfolio"
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         Portfolio
@@ -51,7 +59,9 @@ const navItems = (
       <NavLink
         to="/pricing"
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         Pricing
@@ -62,7 +72,9 @@ const navItems = (
       <NavLink
         to="/contact"
         className={({ isActive }) =>
-          isActive ? "text-primary font-semibold" : ""
+          `text-base py-3 px-4 rounded-lg transition-colors ${
+            isActive ? "text-primary font-semibold bg-primary/10" : ""
+          }`
         }
       >
         Contact
@@ -73,7 +85,7 @@ const navItems = (
 
 const Navbar = () => {
   return (
-    <div className="navbar sticky top-0 z-50 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur-md">
+    <div className="navbar sticky top-0 z-50 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur-md px-4 sm:px-8">
 
       {/* Navbar Start */}
       <div className="navbar-start">
@@ -84,12 +96,12 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost lg:hidden"
+            className="btn btn-ghost lg:hidden p-2"
           >
             <svg
               aria-label="Menu"
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -98,14 +110,15 @@ const Navbar = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
+                d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
           </div>
 
+          {/* Full Width Dropdown Menu for Mobile */}
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content z-[1] mt-3 w-52 rounded-box border border-base-300 bg-base-100 p-2 shadow-lg"
+            className="menu dropdown-content z-[1] mt-3 fixed left-4 right-4 w-[calc(100vw-2rem)] rounded-2xl border border-base-300 bg-base-100 p-4 shadow-2xl space-y-1"
           >
             {navItems}
           </ul>
@@ -131,7 +144,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <NavLink
           to="/contact"
-          className="btn btn-primary rounded-full px-6 text-primary-content shadow-md hover:shadow-primary/30 transition-all"
+          className="btn btn-primary rounded-full px-6 text-primary-content shadow-md hover:shadow-primary/30 transition-all text-sm font-semibold"
         >
           Let's Talk
         </NavLink>
