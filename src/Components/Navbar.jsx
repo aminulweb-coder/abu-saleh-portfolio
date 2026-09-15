@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { NavLink } from "react-router";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
 
   const handleLinkClick = () => {
-    const elem = document.activeElement;
-    if (elem) {
-      elem.blur();
+    setIsOpen(false);
+    if (document.activeElement) {
+      document.activeElement.blur();
     }
   };
 
@@ -105,12 +108,13 @@ const Navbar = () => {
       <div className="navbar-start">
 
         {/* Mobile Dropdown */}
-        <div className="dropdown">
+        <div className="dropdown lg:hidden">
 
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost lg:hidden p-2"
+          {/* Hamburger Icon */}
+          <button
+            type="button"
+            onClick={() => setIsOpen(!isOpen)}
+            className="btn btn-ghost p-2"
           >
             <svg
               aria-label="Menu"
@@ -127,15 +131,16 @@ const Navbar = () => {
                 d="M4 6h16M4 12h16m-7 6h7"
               />
             </svg>
-          </div>
+          </button>
 
-          {/* Full Width Dropdown Menu for Mobile */}
-          <ul
-            tabIndex={-1}
-            className="menu dropdown-content z-[1] mt-3 fixed left-4 right-4 w-[calc(100vw-2rem)] rounded-2xl border border-base-300 bg-base-100 p-4 shadow-2xl space-y-1"
-          >
-            {navItems}
-          </ul>
+          {/* Controlled Dropdown Content */}
+          {isOpen && (
+            <ul
+              className="menu z-[50] mt-3 fixed left-4 right-4 w-[calc(100vw-2rem)] rounded-2xl border border-base-300 bg-base-100 p-4 shadow-2xl space-y-1"
+            >
+              {navItems}
+            </ul>
+          )}
         </div>
 
         {/* Logo */}
