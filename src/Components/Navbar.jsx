@@ -1,89 +1,103 @@
 import { NavLink } from "react-router";
 
-const navItems = (
-  <>
-    <li>
-      <NavLink
-        to="/"
-        end
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        Home
-      </NavLink>
-    </li>
-
-    <li>
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        About
-      </NavLink>
-    </li>
-
-    <li>
-      <NavLink
-        to="/services"
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        Services
-      </NavLink>
-    </li>
-
-    <li>
-      <NavLink
-        to="/portfolio"
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        Portfolio
-      </NavLink>
-    </li>
-
-    <li>
-      <NavLink
-        to="/pricing"
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        Pricing
-      </NavLink>
-    </li>
-
-    <li>
-      <NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          `text-base py-3 px-4 rounded-lg transition-colors ${
-            isActive ? "text-primary font-semibold bg-primary/10" : ""
-          }`
-        }
-      >
-        Contact
-      </NavLink>
-    </li>
-  </>
-);
-
 const Navbar = () => {
+
+  const handleLinkClick = () => {
+    const elem = document.activeElement;
+    if (elem) {
+      elem.blur();
+    }
+  };
+
+  const navItems = (
+    <>
+      <li>
+        <NavLink
+          to="/"
+          end
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          Home
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/about"
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          About
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/services"
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          Services
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/portfolio"
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          Portfolio
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/pricing"
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          Pricing
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          to="/contact"
+          onClick={handleLinkClick}
+          className={({ isActive }) =>
+            `text-base py-3 px-4 rounded-lg transition-colors ${
+              isActive ? "text-primary font-semibold bg-primary/10" : ""
+            }`
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+    </>
+  );
+
   return (
     <div className="navbar sticky top-0 z-50 border-b border-base-300 bg-base-100/90 shadow-sm backdrop-blur-md px-4 sm:px-8">
 
